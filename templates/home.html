@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-5 mb-5 text-white rounded-3 shadow" 
+     style="background: linear-gradient(to right, #4b6cb7, #182848);"
+     data-aos="fade-up" data-aos-duration="1000">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold text-center">Welcome to the Schoint Finder 🎓</h1>
+        <p class="col-lg-8 mx-auto fs-5 text-center">
+            Discover the best scholarships and internships tailored to your profile. 
+            Easily search, filter, and even submit opportunities for others. 
+            Start exploring or contribute to make a difference!
+        </p>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('scholarships') }}" class="btn btn-light btn-lg">View Scholarships & Internships</a>
+            <a href="{{ url_for('submit_scholarship') }}" class="btn btn-outline-light btn-lg ms-2">Upload Scholarship & Internship</a>
+        </div>
+
+    </div>
+</div>
+
+
+
+    <!-- Features Section -->
+    <div class="row text-center mb-5">
+        <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">📚 Find Scholarships and Internships</h5>
+                    <p class="card-text">Explore verified scholarships and Internships sorted by deadline, amount, and eligibility.</p>
+                    <a href="{{ url_for('scholarships') }}" class="btn btn-outline-primary">Explore</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">🚀 Upload Opportunities</h5>
+                    <p class="card-text">Know a scholarship or internship? Help others by uploading it easily in minutes.</p>
+                    <a href="{{ url_for('submit_scholarship') }}" class="btn btn-outline-success">Submit</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">🔐 Admin Dashboard</h5>
+                    <p class="card-text">Moderators can review new submissions before they go live.</p>
+                    <a href="{{ url_for('login') }}" class="btn btn-outline-dark">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="my-5 p-5 bg-body-tertiary rounded-3 text-center" data-aos="fade-up" data-aos-duration="1000">
+        <h2>🌟 Trusted by Students Across India</h2>
+        <p class="lead mt-3">Our mission is to make scholarship and internship access fair and easy. Whether you're a student or a volunteer contributor — thank you for making this possible!</p>
+    </div>
+
+    <!-- FAQ / Info Grid -->
+    <div class="row mt-5 mb-5">
+        <div class="col-md-6 mb-4" data-aos="fade-right" data-aos-duration="1000">
+            <h4>🔎 How do we verify scholarships and internships?</h4>
+            <p>Each submission is manually reviewed by our team or admin panel before it is published.</p>
+        </div>
+        <div class="col-md-6 mb-4" data-aos="fade-left" data-aos-duration="1000">
+            <h4>🙋 Can anyone upload?</h4>
+            <p>Yes! If you know a genuine scholarship or internship opportunity, feel free to share it with the community.</p>
+        </div>
+        <div class="col-md-6 mb-4" data-aos="fade-right" data-aos-duration="1000">
+            <h4>📅 How often is it updated?</h4>
+            <p>We update the listings regularly and encourage contributors to share new finds weekly.</p>
+        </div>
+        <div class="col-md-6 mb-4" data-aos="fade-left" data-aos-duration="1000">
+            <h4>🤝 Want to help?</h4>
+            <p>We're open to community volunteers and partners. Get in touch via <a href="mailto:aditya.prabhu0910@gmail.com">Email</a> or <a href="https://www.linkedin.com/in/aditya-prabhu-056825290/" target="_blank">LinkedIn</a>!</p>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="text-center my-5">
+        <div class="p-4 bg-success text-white rounded-3 shadow" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="mb-0">🎓 {{ scholarship_count }} Scholarships Listed and Counting!</h2>
+        </div>
+    </div>
+
+    <div class="text-center my-5">
+        <div class="p-4 bg-primary text-white rounded-3 shadow" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="mb-0">💼 {{ internship_count }} Internships Listed and Growing!</h2>
+        </div>
+    </div>
+
+
+    <!-- Newsletter Section -->
+    <section id="subscribe-section">
+        <div class="my-5">
+            <div class="p-5 bg-light border rounded-3 shadow text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h3 class="mb-3">📬 Stay Updated</h3>
+                <p>Get notified when new scholarships and internships are added. No spam, just opportunities!</p>
+
+                <!-- Flash messages -->
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-info">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                    </div>
+                {% endif %}
+                {% endwith %}
+
+                <!-- Form -->
+                <form class="row g-3 justify-content-center" method="POST" action="{{ url_for('subscribe') }}#subscribe-section">
+                    <div class="col-auto">
+                        <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+</div>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="container mt-3">
+      {% for message in messages %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+{% endblock %}

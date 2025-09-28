@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4" data-aos="fade-up">
+
+    <div class="d-flex flex-column flex-md-row justify-content-between" style="margin-bottom: 3rem;" data-aos="fade-up">
+    <h2 class="text-center text-md-start mb-3 mb-md-0">Upload an Internship</h2>
+    <a href="/add" class="btn btn-success">Click here to upload scholarships</a>
+    </div>
+
+    {% if success %}
+        <div class="alert alert-success mt-3">Thanks! Your internship has been uploaded.</div>
+    {% endif %}
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} mt-3">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" class="mt-4">
+        <div class="mb-3">
+            <label for="title" class="form-label">Internship Title</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="company" class="form-label">Company</label>
+            <input type="text" class="form-control" id="company" name="company" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="eligibility" class="form-label">Eligibility</label>
+            <input type="text" class="form-control" id="eligibility" name="eligibility" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="stipend" class="form-label">Stipend</label>
+            <input type="text" class="form-control" id="stipend" name="stipend" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="duration" class="form-label">Duration</label>
+            <input type="text" class="form-control" id="duration" name="duration" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" name="location" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="deadline" class="form-label">Deadline</label>
+            <input type="date" class="form-control" id="deadline" name="deadline" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="link" class="form-label">Official Website Link</label>
+            <input type="url" class="form-control" id="link" name="link" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a>
+    </form>
+    
+</div>
+{% endblock %}

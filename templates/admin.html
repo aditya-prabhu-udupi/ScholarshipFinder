@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-4">
+
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>Admin Panel – Pending Submissions</h2>
+        <div>
+            <a href="{{ url_for('archives') }}" class="btn btn-outline-primary me-2">View Archives</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">Logout</a>
+        </div>
+    </div>
+
+
+    <!-- Pending Scholarships -->
+    <h4 class="mt-4">Pending Scholarships</h4>
+    {% if scholarships %}
+        <div class="table-responsive mt-2">
+            <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                    <tr>
+                        <th>Title</th>
+                        <th>Provider</th>
+                        <th>Eligibility</th>
+                        <th>Amount</th>
+                        <th>Deadline</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in scholarships %}
+                        <tr>
+                            <td>{{ s.name }}</td>
+                            <td>{{ s.provider }}</td>
+                            <td>{{ s.eligibility }}</td>
+                            <td>{{ s.amount }}</td>
+                            <td>{{ s.deadline }}</td>
+                            <td>
+                                <a href="{{ url_for('approve_scholarship', id=s.id) }}" class="btn btn-success btn-sm mb-1">Approve</a><br>
+                                <a href="{{ url_for('delete_scholarship', id=s.id) }}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>No pending scholarships.</p>
+    {% endif %}
+
+    <!-- Pending Internships -->
+    <h4 class="mt-5">Pending Internships</h4>
+    {% if internships %}
+        <div class="table-responsive mt-2">
+            <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                    <tr>
+                        <th>Title</th>
+                        <th>Provider</th>
+                        <th>Eligibility</th>
+                        <th>Amount</th>
+                        <th>Duration</th>
+                        <th>Location</th>
+                        <th>Deadline</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in internships %}
+                        <tr>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.provider }}</td>
+                            <td>{{ i.eligibility }}</td>
+                            <td>{{ i.amount }}</td>
+                            <td>{{ i.duration }}</td>
+                            <td>{{ i.location }}</td>
+                            <td>{{ i.deadline }}</td>
+                            <td>
+                                <a href="{{ url_for('approve_internship', id=i.id) }}" class="btn btn-success btn-sm mb-1">Approve</a><br>
+                                <a href="{{ url_for('delete_internship', id=i.id) }}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>No pending internships.</p>
+    {% endif %}
+
+</div>
+{% endblock %}

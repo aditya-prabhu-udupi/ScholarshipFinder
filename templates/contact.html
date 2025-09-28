@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="container mt-5" data-aos="fade-up">
+    <h2 class="mb-4">Contact Us</h2>
+    <p>If you have questions, suggestions, or found an error, feel free to reach out using the form below.</p>
+
+    {% if success %}
+        <div class="alert alert-success">✅ Your message has been sent successfully!</div>
+    {% endif %}
+    {% if error %}
+        <div class="alert alert-danger">❌ Sorry, there was an error sending your message. Please try again later.</div>
+    {% endif %}
+
+
+    <form method="post" action="/contact">
+        <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Your Email</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea name="message" id="message" rows="4" class="form-control" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+    
+</div>
+{% endblock %}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <meta charset="UTF-8">
+  <title>Schoint Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: clip;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 100%;
+    }
+
+    section, .row {
+      margin-left: 0;
+      margin-right: 0;
+      overflow-x: clip;
+    }
+
+    table, img, video {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    [data-aos] {
+      overflow-x: clip; 
+    }
+  </style>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Schoint Finder</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/about">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/scholarships">Apply</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/submit">Upload</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/dashboard">Admin Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/contact">Contact</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-fill">
+    <div class="container mt-4 pb-5">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+  
+
+  {% if request.endpoint == 'home' %}
+<!-- Enhanced Home Page Footer -->
+<footer class="mt-auto py-5" style="background: linear-gradient(135deg, #111, #222); color: #f8f9fa;">
+  <div class="container">
+
+    <div class="row text-center text-md-start" data-aos="fade-up">
+
+      <!-- About / Site Info -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold mb-3" style="position: relative; display: inline-block;">
+          Schoint Finder
+          <span style="position: absolute; bottom: -5px; left:0; width: 50px; height: 3px; background-color: #0d6efd; border-radius: 2px;"></span>
+        </h5>
+        <p class="small" style="line-height:1.6;">
+          Discover verified scholarships and internships tailored for students. Find the right opportunities and advance your career with confidence.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold mb-3">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="{{ url_for('home') }}" class="footer-link">Home</a></li>
+          <li><a href="{{ url_for('scholarships') }}" class="footer-link">Scholarships</a></li>
+          <li><a href="{{ url_for('internships') }}" class="footer-link">Internships</a></li>
+          {% if session.get('user_role') == 'admin' %}
+          <li><a href="{{ url_for('dashboard') }}" class="footer-link">Admin Dashboard</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <!-- Contact / Social -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold mb-3">Contact & Social</h5>
+        <p class="small mb-2">
+          Email: <a href="mailto:aditya.prabhu0910@gmail.com" class="footer-link">aditya.prabhu0910@gmail.com</a>
+        </p>
+        <p class="small mb-2">
+          Phone: <a href="tel:+918217755440" class="footer-link">+91 8217755440</a>
+        </p>
+        <p class="small mb-0">
+          Follow us on:
+        </p>
+
+        <div class="d-flex justify-content-center justify-content-md-start gap-2">
+          <a href="https://github.com/aditya-prabhu-udupi" target="_blank" class="social-icon">
+            <i class="bi bi-github fs-5"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/aditya-prabhu-056825290/" target="_blank" class="social-icon">
+            <i class="bi bi-linkedin fs-5"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    
+
+  </div>
+</footer>
+{% else %}
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4 mt-auto">
+      <div class="container">
+        <p class="mb-1">
+          <a href="{{ url_for('home') }}" class="text-white text-decoration-none">Schoint Finder</a> © {{ current_year }}
+        </p>
+        <small>
+          Made with ❤️ for students.
+        </small>
+      </div>
+  </footer>
+
+  
+
+{% endif %}
+
+<style>
+  /* Footer links */
+  .footer-link {
+    color: #f8f9fa !important;       
+    text-decoration: none !important; 
+    transition: color 0.3s, transform 0.3s;
+  }
+  .footer-link:hover {
+    color: #0d6efd !important;       
+    transform: translateY(-2px);
+  }
+
+  /* Social icons */
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #f8f9fa;
+    border-radius: 50%;
+    color: #f8f9fa;
+    transition: all 0.3s;
+  }
+  .social-icon:hover {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #fff;
+    transform: scale(1.1);
+  }
+</style>
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- AOS Initialization -->
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800,
+      offset: 100,
+      easing: 'ease-in-out'
+    });
+  </script>
+
+</body>
+</html>
