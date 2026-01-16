@@ -37,6 +37,10 @@ Now open [http://localhost:5000](http://localhost:5000).
 
 ---
 
+View Live Website: https://schoint.onrender.com/
+
+---
+
 👨‍💻 Built with passion by [Aditya Prabhu](https://aditya-prabhu-portfolio.netlify.app/)
 
 ---
