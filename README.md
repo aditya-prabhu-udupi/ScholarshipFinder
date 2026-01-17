@@ -29,6 +29,22 @@ It simplifies the search process and provides an **admin controlled system** to 
 * SQLite
 
 ---
+## Screenshots
+
+![1](Screenshots/1.png)  
+![2](Screenshots/2.png)  
+![3](Screenshots/3.png)  
+![4](Screenshots/4.png)
+![5](Screenshots/5.png)  
+![6](Screenshots/6.png)  
+![7](Screenshots/7.png)  
+![8](Screenshots/8.png)
+![9](Screenshots/9.png)  
+![10](Screenshots/10.png)  
+![11](Screenshots/11.png)  
+![12](Screenshots/12.png)
+
+---
 
 ## Installation & Setup
 
@@ -41,8 +57,9 @@ Follow these steps to run the project locally:
 
 ### 2. Create and activate virtual environment
 
-- python -m venv venv  
-- venv\Scripts\activate    # Windows
+- python -m venv venv
+- - venv\Scripts\activate (Windows)
+- source venv/bin/activate (Linux/MacOS)
 
 ### 3. Install dependencies
 
@@ -70,11 +87,12 @@ http://127.0.0.1:5000
 
 ---
 
-## Author
+## About the creator
 
 **Aditya Prabhu**  
 B.Tech – Robotics & Artificial Intelligence  
 Nitte University
+aditya.prabhu0910@gmail.com
 
 Portfolio: [https://aditya-prabhu-portfolio.netlify.app/](https://aditya-prabhu-portfolio.netlify.app/)
 
