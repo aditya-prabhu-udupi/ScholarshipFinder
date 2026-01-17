@@ -1,49 +1,86 @@
 # Scholarship Internship Finder
-# (Schoint Finder)
+## (Schoint Finder)
 
-Scholarship Internship Finder is a personal project that helps students discover **scholarships and internships**. It provides a simple way to browse, submit, and manage opportunities with an admin approval system.
+ScholarshipFinder is a **web application** designed to help students easily discover **scholarships and internships** from a single platform.  
+It simplifies the search process and provides an **admin controlled system** to ensure only verified opportunities are published.
+
+**Live Demo:** [https://scholarshipfinder.onrender.com](https://scholarshipfinder.onrender.com)
 
 ---
 
 ## Features
 
-* Submit scholarships/internships via a form
-* Admin dashboard: approve, reject, edit, or delete submissions
-* Newsletter subscription for updates
-* Search and filter scholarships (by deadline, tags, etc.)
-* Clean, responsive landing page with scroll animations (AOS.js)
+*  View scholarships and internships in one place
+*  Search and filter opportunities
+*  Admin panel for adding, editing, and deleting listings
+*  Admin approval before publishing opportunities
+*  Clean and responsive UI
+*  Web based and easy to access
 
 ---
 
-## Programming Languages used
+## Tech Stack
 
-* **Backend:** Python (Flask)
-* **Frontend:** HTML, CSS, JavaScript
+* Python (Flask)
+* HTML
+* CSS
+* Bootstrap
+* JavaScript
+* SQLite
 
 ---
 
-## To run locally
+## Installation & Setup
 
-```bash
-git clone https://github.com/aditya-prabhu-udupi/ScholarshipFinder.git
-cd ScholarshipFinder
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
+Follow these steps to run the project locally:
+
+### 1. Clone the repository
+
+- git clone https://github.com/aditya-prabhu-udupi/ScholarshipFinder.git  
+- cd ScholarshipFinder
+
+### 2. Create and activate virtual environment
+
+- python -m venv venv  
+- venv\Scripts\activate    # Windows
+
+### 3. Install dependencies
+
 pip install -r requirements.txt
-flask run
+
+### 4. Run the application
+
+python app.py
+
+
+Open browser and go to:
+
+```
+http://127.0.0.1:5000
 ```
 
-Now open [http://localhost:5000](http://localhost:5000).
+---
+
+## Future Improvements
+
+- User authentication for students
+- Email notifications for new scholarships
+- Advanced filters (location, deadline, category)
+
 
 ---
 
-View Live Website: https://schoint.onrender.com/
+## Author
+
+**Aditya Prabhu**  
+B.Tech – Robotics & Artificial Intelligence  
+Nitte University
+
+Portfolio: [https://aditya-prabhu-portfolio.netlify.app/](https://aditya-prabhu-portfolio.netlify.app/)
 
 ---
 
-👨‍💻 Built with passion by [Aditya Prabhu](https://aditya-prabhu-portfolio.netlify.app/)
 
----
 
 This project is for **learning and portfolio purposes**.
 
